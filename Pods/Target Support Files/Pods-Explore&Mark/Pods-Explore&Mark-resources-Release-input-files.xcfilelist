@@ -1,9 +1,0 @@
-${PODS_ROOT}/Target Support Files/Pods-Explore&Mark/Pods-Explore&Mark-resources.sh
-${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-framework/FirebaseAnonymousAuthUI.bundle
-${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-framework/FirebaseAuthUI.bundle
-${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-framework/FirebaseEmailAuthUI.bundle
-${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-framework/FirebaseFacebookAuthUI.bundle
-${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-framework/FirebaseGoogleAuthUI.bundle
-${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-framework/FirebaseOAuthUI.bundle
-${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI-framework/FirebasePhoneAuthUI.bundle
-${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle
