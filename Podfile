@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '8.0'
+platform :ios, '11.0'
 
 # add the Firebase pod for Google Analytics
 pod 'GoogleSignIn'
@@ -11,9 +11,7 @@ pod 'Firebase/Database'
 # https://firebase.google.com/docs/ios/setup#available-pods
 
 target 'Explore&Mark' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
+  # Comment the next line if you don't want to use dynamic frameworks use_frameworks!
   # Pods for Explore&Mark
 
 end
