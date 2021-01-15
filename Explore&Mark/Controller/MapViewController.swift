@@ -76,8 +76,27 @@ class MapViewController: UIViewController {
         mapView.setRegion(region, animated: true)
     }
     
+    func handleGetObjectListByRadiusReponse(data: [OTMObject]?, error: Error?) {
+        guard let data = data else {
+            if let error = error {
+                showNetworkFailedAlert(title: "Get Attractions Data Failed", message: error.localizedDescription)
+            } else {
+                showNetworkFailedAlert(title: "Get Attractions Data Failed", message: "Fetch data failed for unkown reason")
+            }
+            return
+        }
+        
+        //update data to the CoreData
+        print(data)
+    }
     
-    
+    func showNetworkFailedAlert(title: String, message:String) {
+        DispatchQueue.main.async {
+            let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertVC, animated: true, completion: nil)
+        }
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -111,6 +130,6 @@ extension MapViewController: MKMapViewDelegate {
         // get attraction spots nearby
         print(center)
         
-        OTMClient.getObjectsByRadius(lang: "en", radius: mapView.radius, lon: mapView.centerCoordinate.longitude, lat: mapView.centerCoordinate.latitude, rate: nil)
+        OTMClient.getObjectsByRadius(lang: "en", radius: mapView.radius, lon: mapView.centerCoordinate.longitude, lat: mapView.centerCoordinate.latitude, rate: nil, completion: handleGetObjectListByRadiusReponse(data:error:))
     }
 }

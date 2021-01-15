@@ -34,7 +34,7 @@ class OTMClient {
         }
     }
     
-    class func getObjectsByRadius(lang: String, radius: Double, lon: Double, lat: Double, format: String = "json", kinds: String = "interesting_places", rate: String?) {
+    class func getObjectsByRadius(lang: String = "en", radius: Double, lon: Double, lat: Double, format: String = "json", kinds: String = "interesting_places", rate: String?, completion: @escaping ([OTMObject]?, Error?) -> Void) {
         let headers: HTTPHeaders = [
             .accept("application/json")
         ]
@@ -52,12 +52,12 @@ class OTMClient {
             parameters["rate"] = rate
         }
         
-        AF.request(Endpoints.getObjectListByRadius("en").url, method: .get, parameters: parameters, headers: headers).validate().responseDecodable(of: [OTMObject].self) { (response) in
+        AF.request(Endpoints.getObjectListByRadius(lang).url, method: .get, parameters: parameters, headers: headers).validate(statusCode: 200..<300).responseDecodable(of: [OTMObject].self) { (response) in
             switch response.result {
             case .success:
-                print(response.value)
+                completion(response.value!, nil)
             case .failure:
-                print(response.debugDescription)
+                completion(nil, response.error!)
             }
         }
     }
