@@ -18,6 +18,12 @@
 		971D36E325B15DAD00385F0F /* OTMPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D36E225B15DAD00385F0F /* OTMPoint.swift */; };
 		971D3B6125B17E7600385F0F /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3B6025B17E7600385F0F /* OTMClient.swift */; };
 		971D3B9C25B187A900385F0F /* MKMapView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3B9B25B187A900385F0F /* MKMapView+Extension.swift */; };
+		971D3B9F25B226BD00385F0F /* OTMObjectProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3B9E25B226BD00385F0F /* OTMObjectProperty.swift */; };
+		971D3BA225B2279500385F0F /* OTMPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BA125B2279500385F0F /* OTMPreview.swift */; };
+		971D3BA525B229F500385F0F /* OTMWikiPediaExtracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BA425B229F500385F0F /* OTMWikiPediaExtracts.swift */; };
+		971D3BA825B22B3600385F0F /* OTMObjectSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BA725B22B3600385F0F /* OTMObjectSource.swift */; };
+		971D3BAB25B22D6500385F0F /* OTMInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BAA25B22D6400385F0F /* OTMInfo.swift */; };
+		971D3BAE25B22E0400385F0F /* OTMBbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BAD25B22E0400385F0F /* OTMBbox.swift */; };
 		97C2A32425AFDA43005C467A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32325AFDA43005C467A /* AppDelegate.swift */; };
 		97C2A32625AFDA43005C467A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32525AFDA43005C467A /* SceneDelegate.swift */; };
 		97C2A32825AFDA43005C467A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32725AFDA43005C467A /* SignInViewController.swift */; };
@@ -44,6 +50,12 @@
 		971D36E225B15DAD00385F0F /* OTMPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMPoint.swift; sourceTree = "<group>"; };
 		971D3B6025B17E7600385F0F /* OTMClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		971D3B9B25B187A900385F0F /* MKMapView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extension.swift"; sourceTree = "<group>"; };
+		971D3B9E25B226BD00385F0F /* OTMObjectProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMObjectProperty.swift; sourceTree = "<group>"; };
+		971D3BA125B2279500385F0F /* OTMPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMPreview.swift; sourceTree = "<group>"; };
+		971D3BA425B229F500385F0F /* OTMWikiPediaExtracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMWikiPediaExtracts.swift; sourceTree = "<group>"; };
+		971D3BA725B22B3600385F0F /* OTMObjectSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMObjectSource.swift; sourceTree = "<group>"; };
+		971D3BAA25B22D6400385F0F /* OTMInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMInfo.swift; sourceTree = "<group>"; };
+		971D3BAD25B22E0400385F0F /* OTMBbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMBbox.swift; sourceTree = "<group>"; };
 		97C2A32025AFDA43005C467A /* Explore&Mark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Explore&Mark.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C2A32325AFDA43005C467A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C2A32525AFDA43005C467A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +104,12 @@
 			children = (
 				971D36DF25B15D2E00385F0F /* OTMObject.swift */,
 				971D36E225B15DAD00385F0F /* OTMPoint.swift */,
+				971D3B9E25B226BD00385F0F /* OTMObjectProperty.swift */,
+				971D3BA125B2279500385F0F /* OTMPreview.swift */,
+				971D3BA425B229F500385F0F /* OTMWikiPediaExtracts.swift */,
+				971D3BA725B22B3600385F0F /* OTMObjectSource.swift */,
+				971D3BAA25B22D6400385F0F /* OTMInfo.swift */,
+				971D3BAD25B22E0400385F0F /* OTMBbox.swift */,
 			);
 			path = Respnse;
 			sourceTree = "<group>";
@@ -308,10 +326,14 @@
 				97C2A32825AFDA43005C467A /* SignInViewController.swift in Sources */,
 				97C2A32425AFDA43005C467A /* AppDelegate.swift in Sources */,
 				971D367C25B0DA8000385F0F /* MainTabBarController.swift in Sources */,
+				971D3BA825B22B3600385F0F /* OTMObjectSource.swift in Sources */,
 				971D368325B0E04B00385F0F /* TableViewController.swift in Sources */,
 				97C2A32625AFDA43005C467A /* SceneDelegate.swift in Sources */,
+				971D3BAE25B22E0400385F0F /* OTMBbox.swift in Sources */,
 				971D367F25B0E03500385F0F /* MapViewController.swift in Sources */,
+				971D3BA525B229F500385F0F /* OTMWikiPediaExtracts.swift in Sources */,
 				971D3B6125B17E7600385F0F /* OTMClient.swift in Sources */,
+				971D3B9F25B226BD00385F0F /* OTMObjectProperty.swift in Sources */,
 				97C2A34125AFEAFF005C467A /* DataController.swift in Sources */,
 				971D36E325B15DAD00385F0F /* OTMPoint.swift in Sources */,
 				97C2A34625AFECE8005C467A /* Explore&Mark.xcdatamodeld in Sources */,
@@ -320,6 +342,8 @@
 				971D3B9C25B187A900385F0F /* MKMapView+Extension.swift in Sources */,
 				97C2A3B525B01CBD005C467A /* RootNavigationController.swift in Sources */,
 				971D367925B0B85500385F0F /* AppData.swift in Sources */,
+				971D3BAB25B22D6500385F0F /* OTMInfo.swift in Sources */,
+				971D3BA225B2279500385F0F /* OTMPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

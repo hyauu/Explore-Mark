@@ -39,11 +39,11 @@ struct OTMObject: Codable {
     let xid: String
     let name: String
     let rate: Int
-    let osm: String? // property of reponse for object lists by bbox
-    let wikiData: String?
+    let osm: String? // optional property
+    let wikiData: String? // optional property
     let kinds: String
     let point: OTMPoint
-    let dist: Double? // property of reponse for object lists by radius
+    let dist: Double? // optional property
     
     enum CodingKeys: String, CodingKey {
         case xid
