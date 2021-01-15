@@ -1,4 +1,4 @@
-framework module Pods_Explore_Mark {
+module Pods_Explore_Mark {
   umbrella header "Pods-Explore&Mark-umbrella.h"
 
   export *

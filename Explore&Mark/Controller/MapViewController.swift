@@ -76,6 +76,8 @@ class MapViewController: UIViewController {
         mapView.setRegion(region, animated: true)
     }
     
+    
+    
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -107,7 +109,8 @@ extension MapViewController: MKMapViewDelegate {
         UserDefaults.standard.setValue(lonDelta, forKey: "lonDelta")
         
         // get attraction spots nearby
-        print(mapView.bounds.minX)
         print(center)
+        
+        OTMClient.getObjectsByRadius(lang: "en", radius: mapView.radius, lon: mapView.centerCoordinate.longitude, lat: mapView.centerCoordinate.latitude, rate: nil)
     }
 }

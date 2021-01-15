@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 
+// Extend the CLLocationCoordinate2D class to make it can be represented as Dictionary
 extension CLLocationCoordinate2D: Equatable {
     private static let lat = "lat"
     private static let lon = "lon"
