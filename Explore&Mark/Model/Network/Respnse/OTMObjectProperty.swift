@@ -22,7 +22,7 @@ struct OTMObjectProperty: Codable {
     let url: String?
     let otm: String
     let point: OTMPoint
-    let sources: OTMObjectSource?
+    let sources: OTMObjectSource
     let info: OTMInfo?
     let bbox: OTMBbox?
     
