@@ -28,7 +28,7 @@ This is an iOS App that allow user to explore the interesting place around his/h
     - Flickr
     - OpenWeather
 
-- Netwroking (Http Request)
+- Networking (Http Request)
     - Alamofire
     
 - Authentication
