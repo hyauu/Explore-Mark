@@ -28,13 +28,14 @@ class DataController {
         backgroundContext.automaticallyMergesChangesFromParent = true
 
         backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
-        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
     }
     
     func load(completion: (() -> Void)? = nil) {
         persistentContainer.loadPersistentStores { storeDescription, error in
             guard error == nil else {
-                fatalError(error!.localizedDescription)
+                print(error!.localizedDescription)
+                return
             }
             self.autoSaveViewContext()
             self.configureContexts()

@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 
 class MapViewController: UIViewController {
@@ -78,12 +79,7 @@ class MapViewController: UIViewController {
     
     func handleGetObjectListByRadiusReponse(data: [OTMObject]?, error: Error?) {
         guard let data = data else {
-            if let error = error {
-                showNetworkFailedAlert(title: "Get Object list Failed", message: error.localizedDescription)
-                print(error)
-            } else {
-                showNetworkFailedAlert(title: "Get Object list Failed", message: "Fetch data failed for unkown reason")
-            }
+            print(error ?? "Fail to get object property for unkown reason") // print the error in the background
             return
         }
         
@@ -100,8 +96,33 @@ class MapViewController: UIViewController {
             return
         }
         
-        // update data to the CorData (todo)
-        print(data)
+        // update data to the CoreData if not exist
+        let fetechRequest: NSFetchRequest<Place> = Place.fetchRequest()
+        fetechRequest.predicate = NSPredicate(format: "xid == %@", data.xid)
+        do {
+            let results = try DataController.shared.viewContext.fetch(fetechRequest)
+            if results.count == 0 {
+                let place = Place(context: DataController.shared.viewContext)
+                place.kinds = data.kinds ?? "kind is currently unkown"
+                place.lat = data.point.lat
+                place.lon = data.point.lon
+                place.name = data.name
+                place.xid = data.xid
+                do {
+                    try DataController.shared.viewContext.save()
+                } catch {
+                    print("Failed to store object property to CoreData for \(error.localizedDescription)")
+                }
+            }
+            // update mapView pin
+            let newAnnotation = MKPointAnnotation()
+            newAnnotation.coordinate = CLLocationCoordinate2D(latitude: data.point.lat, longitude: data.point.lon)
+            newAnnotation.title = data.name
+            newAnnotation.subtitle = data.kinds ?? "kind is currently unkown"
+            mapView.addAnnotation(newAnnotation)
+        } catch {
+            print("Fetch Place error for \(error.localizedDescription)")
+        }
     }
     
     func showNetworkFailedAlert(title: String, message:String) {
@@ -111,6 +132,7 @@ class MapViewController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
+    
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -129,6 +151,24 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.image = UIImage(named: "icons8-map-pin-24")
+            pinView?.canShowCallout = true
+            pinView?.tintColor = .lightGray
+            pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        } else {
+            pinView?.annotation = annotation
+        }
+
+        return pinView
+    }
+
+    
     // Update map region to permanent store
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
