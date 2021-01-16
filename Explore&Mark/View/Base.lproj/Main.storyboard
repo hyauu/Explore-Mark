@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Mo-4K-TcC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VXM-CT-RDK">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -80,6 +81,93 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXf-vM-GV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1704" y="46"/>
+        </scene>
+        <!--Place Detail View Controller-->
+        <scene sceneID="HR3-Vw-Oxe">
+            <objects>
+                <viewController storyboardIdentifier="placeDetailVC" title="Place Detail View Controller" id="7iQ-ro-Ukz" customClass="PlaceDetailViewController" customModule="Explore_Mark" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uFo-74-Mdg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="uDe-tQ-IMI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYa-82-LMx">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kinds" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvJ-HO-h5M">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHt-rL-LII">
+                                        <rect key="frame" x="0.0" y="58" width="320" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Giy-tu-hXe">
+                                        <rect key="frame" x="0.0" y="81" width="320" height="487"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nI0-5Y-yjO">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Place Image Cell" reuseIdentifier="placeImageCell" id="GZJ-kC-2UI" customClass="PlaceImageCollectionViewCell" customModule="Explore_Mark" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CP6-Mj-Jub">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4I2-do-Cyv">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="4I2-do-Cyv" secondAttribute="bottom" id="M3H-cd-kc6"/>
+                                                        <constraint firstItem="4I2-do-Cyv" firstAttribute="leading" secondItem="CP6-Mj-Jub" secondAttribute="leading" id="QWj-Cy-MJ3"/>
+                                                        <constraint firstItem="4I2-do-Cyv" firstAttribute="top" secondItem="CP6-Mj-Jub" secondAttribute="top" id="nic-L9-DBD"/>
+                                                        <constraint firstAttribute="trailing" secondItem="4I2-do-Cyv" secondAttribute="trailing" id="ohd-it-tbo"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <connections>
+                                                    <outlet property="placeImage" destination="4I2-do-Cyv" id="X3E-VK-TDn"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jvJ-HO-h5M" firstAttribute="top" secondItem="gYa-82-LMx" secondAttribute="bottom" constant="6" id="v78-8B-L1S"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rfk-2N-Jsa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rfk-2N-Jsa" firstAttribute="bottom" secondItem="uDe-tQ-IMI" secondAttribute="bottom" id="0uS-Hz-t4y"/>
+                            <constraint firstItem="uDe-tQ-IMI" firstAttribute="top" secondItem="Rfk-2N-Jsa" secondAttribute="top" id="66C-7P-t3L"/>
+                            <constraint firstItem="uDe-tQ-IMI" firstAttribute="leading" secondItem="Rfk-2N-Jsa" secondAttribute="leading" id="ULZ-rH-QcI"/>
+                            <constraint firstItem="Rfk-2N-Jsa" firstAttribute="trailing" secondItem="uDe-tQ-IMI" secondAttribute="trailing" id="z3I-vd-MKl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imagesCollection" destination="Giy-tu-hXe" id="kUd-lD-miO"/>
+                        <outlet property="placeDescription" destination="pHt-rL-LII" id="0eg-wP-bvX"/>
+                        <outlet property="placeKinds" destination="jvJ-HO-h5M" id="hBu-sj-5bi"/>
+                        <outlet property="placeName" destination="gYa-82-LMx" id="1xz-GU-GSf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F5Y-bj-rRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2454" y="-37"/>
         </scene>
         <!--NewRecord View Controller-->
         <scene sceneID="dsE-GG-gIS">

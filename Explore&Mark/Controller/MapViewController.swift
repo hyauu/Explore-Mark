@@ -101,6 +101,7 @@ class MapViewController: UIViewController {
         fetechRequest.predicate = NSPredicate(format: "xid == %@", data.xid)
         do {
             let results = try DataController.shared.viewContext.fetch(fetechRequest)
+            let newAnnotation = MKPointAnnotationWithPlace()
             if results.count == 0 {
                 let place = Place(context: DataController.shared.viewContext)
                 place.kinds = data.kinds ?? "kind is currently unkown"
@@ -108,17 +109,21 @@ class MapViewController: UIViewController {
                 place.lon = data.point.lon
                 place.name = data.name
                 place.xid = data.xid
+                place.wikiDescription = data.wikiPediaExtracts.text
                 do {
                     try DataController.shared.viewContext.save()
+                    newAnnotation.place = place
                 } catch {
                     print("Failed to store object property to CoreData for \(error.localizedDescription)")
                 }
+            } else {
+                newAnnotation.place = results[0]
             }
             // update mapView pin
-            let newAnnotation = MKPointAnnotation()
             newAnnotation.coordinate = CLLocationCoordinate2D(latitude: data.point.lat, longitude: data.point.lon)
             newAnnotation.title = data.name
             newAnnotation.subtitle = data.kinds ?? "kind is currently unkown"
+            
             mapView.addAnnotation(newAnnotation)
         } catch {
             print("Fetch Place error for \(error.localizedDescription)")
@@ -183,5 +188,14 @@ extension MapViewController: MKMapViewDelegate {
         
         // get attraction spots nearby
         OTMClient.getObjectsByRadius(lang: "en", radius: mapView.radius, lon: mapView.centerCoordinate.longitude, lat: mapView.centerCoordinate.latitude, rate: "3", completion: handleGetObjectListByRadiusReponse(data:error:))
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            let detailVC = self.storyboard?.instantiateViewController(identifier: "placeDetailVC") as! PlaceDetailViewController
+            let annotation = view.annotation as! MKPointAnnotationWithPlace
+            detailVC.place = annotation.place
+            self.present(detailVC, animated: true, completion: nil)
+        }
     }
 }

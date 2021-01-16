@@ -20,14 +20,14 @@ class FlickrClient {
         private static let imageBaseURL = "https://live.staticflickr.com/" // url for download iamge file
         
         case searchPhotos
-        case downloadImage
+        case downloadImage(String, String, String)
         
-        private var stringValue: String {
+        var stringValue: String {
             switch self {
             case .searchPhotos:
                 return Endpoints.baseURL
-            default:
-                return Endpoints.imageBaseURL
+            case .downloadImage(let photoServer, let photoId, let photoSecret):
+                return Endpoints.imageBaseURL + "\(photoServer)/\(photoId)_\(photoSecret)"
             }
         }
         
@@ -37,16 +37,44 @@ class FlickrClient {
     }
     
     // Search photos information associate with specific place
-    class func searchForPhotos(place: Place) {
+    class func searchForPhotos(place: Place, perPage: Int = 15, completion: @escaping (FlickrPhotoSearch?, Error?) -> Void) {
         let paramters: [String: Any] = ["method": "flickr.photos.search",
                          "api_key": apiKey,
                          "lat": place.lat,
                          "lon": place.lon,
                          "format": "json",
                          "nojsoncallback": 1,
-                         "page": Int(arc4random_uniform(UInt32(20))) % 20
+                         "page": Int(arc4random_uniform(UInt32(20))) % 20,
+                         "per_page": perPage
         ]
         
-        
+        AF.request(Endpoints.searchPhotos.url, method: .get, parameters: paramters).validate().responseDecodable(of: FlickrPhotoSearch.self) { (response) in
+            switch response.result {
+            case .success:
+                completion(response.value!, nil)
+            case .failure:
+                completion(nil, response.error!)
+            }
+        }
+    }
+    
+    // Download image
+    class func downloadImage(photo: FlickrPhotoInfo, size: String? = nil, completion: @escaping (UIImage?, Error?) -> Void) {
+        DispatchQueue.global(qos: .userInteractive).async {
+            var url = Endpoints.downloadImage(photo.server, photo.id, photo.secret).stringValue
+            if let size = size {
+                url += "_\(size).jpg"
+            } else {
+                url += ".jpg"
+            }
+            AF.request(url, method: .get).validate().responseData { (response) in
+                switch response.result {
+                case .success:
+                    completion(UIImage(data: response.value!)!, nil)
+                case .failure:
+                    completion(nil, response.error!)
+                }
+            }
+        }
     }
 }

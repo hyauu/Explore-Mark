@@ -9,7 +9,7 @@ import Foundation
 
 // Extracts of the wikipedia page
 struct OTMWikiPediaExtracts: Codable {
-    let title: String?
-    let text: String?
-    let html: String?
+    let title: String
+    let text: String
+    let html: String
 }
