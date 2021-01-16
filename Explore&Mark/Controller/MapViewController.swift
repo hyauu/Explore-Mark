@@ -79,14 +79,28 @@ class MapViewController: UIViewController {
     func handleGetObjectListByRadiusReponse(data: [OTMObject]?, error: Error?) {
         guard let data = data else {
             if let error = error {
-                showNetworkFailedAlert(title: "Get Attractions Data Failed", message: error.localizedDescription)
+                showNetworkFailedAlert(title: "Get Object list Failed", message: error.localizedDescription)
+                print(error)
             } else {
-                showNetworkFailedAlert(title: "Get Attractions Data Failed", message: "Fetch data failed for unkown reason")
+                showNetworkFailedAlert(title: "Get Object list Failed", message: "Fetch data failed for unkown reason")
             }
             return
         }
         
-        //update data to the CoreData
+        //get the property for each object
+        print("Number of object nearby: \(data.count)")
+        for res in data {
+            OTMClient.getObjectPerpertyByXid(xid: res.xid, completion: handleGetObjectPropoertyByXidResponse(data:error:))
+        }
+    }
+    
+    func handleGetObjectPropoertyByXidResponse(data: OTMObjectProperty?, error: Error?) {
+        guard let data = data else {
+            print(error ?? "Fail to get object property for unkown reason") // print the error in the background
+            return
+        }
+        
+        // update data to the CorData (todo)
         print(data)
     }
     
@@ -128,8 +142,6 @@ extension MapViewController: MKMapViewDelegate {
         UserDefaults.standard.setValue(lonDelta, forKey: "lonDelta")
         
         // get attraction spots nearby
-        print(center)
-        
-        OTMClient.getObjectsByRadius(lang: "en", radius: mapView.radius, lon: mapView.centerCoordinate.longitude, lat: mapView.centerCoordinate.latitude, rate: nil, completion: handleGetObjectListByRadiusReponse(data:error:))
+        OTMClient.getObjectsByRadius(lang: "en", radius: mapView.radius, lon: mapView.centerCoordinate.longitude, lat: mapView.centerCoordinate.latitude, rate: "3", completion: handleGetObjectListByRadiusReponse(data:error:))
     }
 }

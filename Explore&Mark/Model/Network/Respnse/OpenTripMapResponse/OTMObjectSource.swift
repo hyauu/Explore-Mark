@@ -9,5 +9,5 @@ import Foundation
 
 struct OTMObjectSource: Codable {
     let geometry: String
-    let attributes: String
+    let attributes: [String]
 }

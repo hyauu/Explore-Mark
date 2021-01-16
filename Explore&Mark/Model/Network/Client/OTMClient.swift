@@ -19,6 +19,7 @@ class OTMClient {
         
         case getObjectListByBbox(String, Int, Int, Int, Int, String, String)
         case getObjectListByRadius(String)
+        case getObjectProperty(String, String)
         
         private var stringValue: String {
             switch self {
@@ -26,6 +27,8 @@ class OTMClient {
                 return Endpoints.getObjectListBase + "/\(lang)/places/bbox?" + "lon_min=\(lonMin)&lon_max=\(lonMax)&lat_min=\(latMin)&lat_max=\(latMax)&kinds=\(kinds)&rate=\(rate)&apiKey=\(OTMClient.apiKey)"
             case .getObjectListByRadius(let lang):
                 return Endpoints.getObjectListBase + "/\(lang)/places/radius"
+            case .getObjectProperty(let lang, let xid):
+                return Endpoints.getObjectListBase + "/\(lang)/places/xid/\(xid)"
             }
         }
         
@@ -34,7 +37,27 @@ class OTMClient {
         }
     }
     
-    class func getObjectsByRadius(lang: String = "en", radius: Double, lon: Double, lat: Double, format: String = "json", kinds: String = "interesting_places", rate: String?, completion: @escaping ([OTMObject]?, Error?) -> Void) {
+    // get object property
+    class func getObjectPerpertyByXid(lang: String = "en", xid: String, completion: @escaping (OTMObjectProperty?, Error?) -> Void) {
+        let headers: HTTPHeaders = [
+            .accept("application/json")
+        ]
+        let parameters: [String: Any] = [
+            "apikey": apiKey
+        ]
+
+        AF.request(Endpoints.getObjectProperty(lang, xid).url, method: .get, parameters: parameters, headers: headers).responseDecodable(of: OTMObjectProperty.self) { (response) in
+            switch response.result {
+            case .success:
+                completion(response.value!, nil)
+            case .failure:
+                completion(nil, response.error!)
+            }
+        }
+    }
+    
+    // get object list by radius
+    class func getObjectsByRadius(lang: String = "en", radius: Double, lon: Double, lat: Double, format: String = "json", kinds: String = "interesting_places", rate: String? = nil, limit: Int = 50, completion: @escaping ([OTMObject]?, Error?) -> Void) {
         let headers: HTTPHeaders = [
             .accept("application/json")
         ]
@@ -45,7 +68,8 @@ class OTMClient {
             "lat": lat,
             "kinds": kinds,
             "format": format,
-            "apikey": apiKey
+            "apikey": apiKey,
+            "limit": limit
         ]
         
         if let rate = rate {
@@ -61,13 +85,5 @@ class OTMClient {
             }
         }
     }
-    
-    
-    
-    
-    // get object lists by boundary box
-//    class func getObjectListByBbox(lang: String, lonMin: Int, lonMax: Int, latMin: Int, latMax:Int, kinds: String, rate: String) {
-//        let url = Endpoints.getObjectListByBbox(lang, lonMin, lonMax, latMin, latMax, kinds, rate)
-//
-//    }
+
 }

@@ -24,6 +24,7 @@
 		971D3BA825B22B3600385F0F /* OTMObjectSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BA725B22B3600385F0F /* OTMObjectSource.swift */; };
 		971D3BAB25B22D6500385F0F /* OTMInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BAA25B22D6400385F0F /* OTMInfo.swift */; };
 		971D3BAE25B22E0400385F0F /* OTMBbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BAD25B22E0400385F0F /* OTMBbox.swift */; };
+		971D3BB125B2731300385F0F /* OTMAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BB025B2731300385F0F /* OTMAddress.swift */; };
 		97C2A32425AFDA43005C467A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32325AFDA43005C467A /* AppDelegate.swift */; };
 		97C2A32625AFDA43005C467A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32525AFDA43005C467A /* SceneDelegate.swift */; };
 		97C2A32825AFDA43005C467A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32725AFDA43005C467A /* SignInViewController.swift */; };
@@ -56,6 +57,7 @@
 		971D3BA725B22B3600385F0F /* OTMObjectSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMObjectSource.swift; sourceTree = "<group>"; };
 		971D3BAA25B22D6400385F0F /* OTMInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMInfo.swift; sourceTree = "<group>"; };
 		971D3BAD25B22E0400385F0F /* OTMBbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMBbox.swift; sourceTree = "<group>"; };
+		971D3BB025B2731300385F0F /* OTMAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTMAddress.swift; sourceTree = "<group>"; };
 		97C2A32025AFDA43005C467A /* Explore&Mark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Explore&Mark.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C2A32325AFDA43005C467A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C2A32525AFDA43005C467A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 		971D36DE25B15D0600385F0F /* Respnse */ = {
 			isa = PBXGroup;
 			children = (
+				971D3BB325B28A0200385F0F /* OpenTripMapResponse */,
+			);
+			path = Respnse;
+			sourceTree = "<group>";
+		};
+		971D3BB325B28A0200385F0F /* OpenTripMapResponse */ = {
+			isa = PBXGroup;
+			children = (
 				971D36DF25B15D2E00385F0F /* OTMObject.swift */,
 				971D36E225B15DAD00385F0F /* OTMPoint.swift */,
 				971D3B9E25B226BD00385F0F /* OTMObjectProperty.swift */,
@@ -110,8 +120,9 @@
 				971D3BA725B22B3600385F0F /* OTMObjectSource.swift */,
 				971D3BAA25B22D6400385F0F /* OTMInfo.swift */,
 				971D3BAD25B22E0400385F0F /* OTMBbox.swift */,
+				971D3BB025B2731300385F0F /* OTMAddress.swift */,
 			);
-			path = Respnse;
+			path = OpenTripMapResponse;
 			sourceTree = "<group>";
 		};
 		97C2A31725AFDA43005C467A = {
@@ -329,6 +340,7 @@
 				971D3BA825B22B3600385F0F /* OTMObjectSource.swift in Sources */,
 				971D368325B0E04B00385F0F /* TableViewController.swift in Sources */,
 				97C2A32625AFDA43005C467A /* SceneDelegate.swift in Sources */,
+				971D3BB125B2731300385F0F /* OTMAddress.swift in Sources */,
 				971D3BAE25B22E0400385F0F /* OTMBbox.swift in Sources */,
 				971D367F25B0E03500385F0F /* MapViewController.swift in Sources */,
 				971D3BA525B229F500385F0F /* OTMWikiPediaExtracts.swift in Sources */,

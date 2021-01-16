@@ -13,18 +13,19 @@ struct OTMObjectProperty: Codable {
     let kinds: String?
     let osm: String?
     let wikiData: String?
-    let rate: String
+    let rate: String?
     let image: String?
     let preview: OTMPreview?
     let wikiPedia: String?
-    let wikiPediaExtracts: OTMWikiPediaExtracts?
+    let wikiPediaExtracts: OTMWikiPediaExtracts
     let voyage: String?
     let url: String?
-    let otm: String
+    let otm: String?
     let point: OTMPoint
-    let sources: OTMObjectSource
+    let sources: OTMObjectSource?
     let info: OTMInfo?
     let bbox: OTMBbox?
+    let address: OTMAddress?
     
     enum CodingKeys: String, CodingKey {
         case xid
@@ -44,5 +45,6 @@ struct OTMObjectProperty: Codable {
         case sources
         case info
         case bbox
+        case address
     }
 }
