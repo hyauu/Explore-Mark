@@ -4,7 +4,7 @@
 
 This is an iOS App that allow user to explore the interesting place around his/her location or any location the user want to explore, and also enable user to mark his/her explore records
 
-## Requirement
+## Requirements
 
 - iOS 10.0+ 
 - Xcode 11+
@@ -12,22 +12,27 @@ This is an iOS App that allow user to explore the interesting place around his/h
 
 ## Tech Stack
 
-- Swift
+- Language
+    - Swift
+
+- UI
     - UIKit
     - MapKit
-    - CoreData
     
- - Firebase
-    - Realtime Database
-    - Authentication
+ - Storeage
+    - CoreData
+    - Firebase Realtime Database
 
 - Thrid-party APIs
     - OpenTripMap
     - Flickr
     - OpenWeather
 
-- HTTP Request
+- Netwroking (Http Request)
     - Alamofire
+    
+- Authentication
+    - Firebase Authtenticaton
     
 ## Project Structure
 
