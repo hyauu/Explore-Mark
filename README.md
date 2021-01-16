@@ -6,7 +6,7 @@ This is an iOS App that allow user to explore the interesting place around his/h
 
 ## Requirements
 
-- iOS 10.0+ 
+- iOS 11.0+ 
 - Xcode 11+
 - Swift 5.1+
 
