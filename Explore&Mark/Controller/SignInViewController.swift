@@ -11,50 +11,36 @@ import GoogleSignIn
 
 class SignInViewController: UIViewController {
 
+    @IBOutlet weak var signInAsGuest: UIButton!
+    
+    var signInAsGuestIsHidden: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = true
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().delegate = self
+        signInAsGuest.isHidden = signInAsGuestIsHidden
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUserSignedIn), name: .didAuthenticated, object: nil)
     }
     
-}
-
-extension SignInViewController: GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print("Error occurs: \(error.localizedDescription)")
-            return
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            didReceiveUserSignedIn()
         }
-        
-        guard let authentication = user.authentication else {
-            print("Authentication Failed")
-            return
-        }
-        
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        print("Success")
-        
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            AppData.uid = authResult!.user.uid
-            print(AppData.uid!)
+    }
+    
+    @IBAction func signInAsGuest(_ sender: Any) {
+        didReceiveUserSignedIn()
+    }
+    
+    @objc private func didReceiveUserSignedIn() {
+        if isModal == false {
             let vc = self.storyboard?.instantiateViewController(identifier: "mainTabBarVC")
-            self.navigationController!.show(vc!, sender: self)
-        }
-    }
-    
-    func signOut() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+            self.navigationController?.show(vc!, sender: self)
+        } else {
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
-

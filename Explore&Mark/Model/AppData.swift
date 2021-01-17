@@ -11,7 +11,7 @@ import CoreData
 
 class AppData {
     static var ref: DatabaseReference!
-    static var uid: String!
+    static var user: User?
     static let defaultLatDelta = 0.1
     static let defaultLonDelta = 0.1
     static var userLocation: CLLocationCoordinate2D?

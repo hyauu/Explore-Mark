@@ -33,6 +33,8 @@
 		971D3BC825B2A5E100385F0F /* PlaceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BC725B2A5E100385F0F /* PlaceImageCollectionViewCell.swift */; };
 		971D3BCB25B2ABCC00385F0F /* MKPointAnnotationWithPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BCA25B2ABCC00385F0F /* MKPointAnnotationWithPlace.swift */; };
 		971D3BE525B2BEE200385F0F /* Place+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BE425B2BEE200385F0F /* Place+Extension.swift */; };
+		971D3BED25B3B87600385F0F /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BEC25B3B87600385F0F /* NotificationName+Extension.swift */; };
+		971D3BF025B3BC2700385F0F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BEF25B3BC2600385F0F /* UIViewController+Extension.swift */; };
 		97C2A32425AFDA43005C467A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32325AFDA43005C467A /* AppDelegate.swift */; };
 		97C2A32625AFDA43005C467A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32525AFDA43005C467A /* SceneDelegate.swift */; };
 		97C2A32825AFDA43005C467A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32725AFDA43005C467A /* SignInViewController.swift */; };
@@ -74,6 +76,8 @@
 		971D3BC725B2A5E100385F0F /* PlaceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		971D3BCA25B2ABCC00385F0F /* MKPointAnnotationWithPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotationWithPlace.swift; sourceTree = "<group>"; };
 		971D3BE425B2BEE200385F0F /* Place+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+Extension.swift"; sourceTree = "<group>"; };
+		971D3BEC25B3B87600385F0F /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
+		971D3BEF25B3BC2600385F0F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		97C2A32025AFDA43005C467A /* Explore&Mark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Explore&Mark.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C2A32325AFDA43005C467A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C2A32525AFDA43005C467A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				971D368B25B10ACB00385F0F /* Coordinate+Extension.swift */,
 				971D3B9B25B187A900385F0F /* MKMapView+Extension.swift */,
 				971D3BE425B2BEE200385F0F /* Place+Extension.swift */,
+				971D3BEC25B3B87600385F0F /* NotificationName+Extension.swift */,
+				971D3BEF25B3BC2600385F0F /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 				971D3BAE25B22E0400385F0F /* OTMBbox.swift in Sources */,
 				971D3BC525B2A47600385F0F /* PlaceDetailViewController.swift in Sources */,
 				971D367F25B0E03500385F0F /* MapViewController.swift in Sources */,
+				971D3BF025B3BC2700385F0F /* UIViewController+Extension.swift in Sources */,
 				971D3BA525B229F500385F0F /* OTMWikiPediaExtracts.swift in Sources */,
 				971D3BCB25B2ABCC00385F0F /* MKPointAnnotationWithPlace.swift in Sources */,
 				971D3B6125B17E7600385F0F /* OTMClient.swift in Sources */,
@@ -387,6 +394,7 @@
 				97C2A34625AFECE8005C467A /* Explore&Mark.xcdatamodeld in Sources */,
 				971D368C25B10ACC00385F0F /* Coordinate+Extension.swift in Sources */,
 				971D36E025B15D2E00385F0F /* OTMObject.swift in Sources */,
+				971D3BED25B3B87600385F0F /* NotificationName+Extension.swift in Sources */,
 				971D3B9C25B187A900385F0F /* MKMapView+Extension.swift in Sources */,
 				97C2A3B525B01CBD005C467A /* RootNavigationController.swift in Sources */,
 				971D367925B0B85500385F0F /* AppData.swift in Sources */,

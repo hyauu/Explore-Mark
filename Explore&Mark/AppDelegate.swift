@@ -17,8 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         DataController.shared.load()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         AppData.ref = Database.database().reference()
         return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        signOut()
     }
 
     // MARK: UISceneSession Lifecycle
@@ -44,6 +49,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-//extension AppDelegate: GIDSignInDelegate {
-//
-//}
+extension AppDelegate: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print("Error occurs: \(error.localizedDescription)")
+            return
+        }
+        
+        guard let authentication = user.authentication else {
+            print("Authentication Failed")
+            return
+        }
+        
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            NotificationCenter.default.post(name: .didAuthenticated, object: nil)
+        }
+    }
+    
+    func signOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+}

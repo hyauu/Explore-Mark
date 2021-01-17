@@ -9,9 +9,14 @@ import UIKit
 
 class NewRecordViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleText: UITextField!
+    @IBOutlet weak var blankLine: UIView!
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        blankLine.backgroundColor = .darkGray
         // Do any additional setup after loading the view.
     }
     
