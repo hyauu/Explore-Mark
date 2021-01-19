@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xEo-3a-PbA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VXM-CT-RDK">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5Y-bj-rRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="-37"/>
+            <point key="canvasLocation" x="876" y="442"/>
         </scene>
         <!--NewRecord View Controller-->
         <scene sceneID="dsE-GG-gIS">
@@ -178,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nbq-kE-OnV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-JN-2AQ">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
@@ -204,7 +204,7 @@
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Content Here.." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mxo-Ko-zcY">
-                                        <rect key="frame" x="0.0" y="75.5" width="320" height="443.5"/>
+                                        <rect key="frame" x="0.0" y="75.5" width="320" height="492.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -235,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95e-dj-SCc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="468"/>
+            <point key="canvasLocation" x="2441" y="45"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="jPr-qf-zfQ">
@@ -291,7 +291,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="kIk-vm-GHc" kind="relationship" relationship="viewControllers" destinationCreationSelector="toMapVC" id="dnm-Is-2Mk"/>
-                        <segue destination="xEo-3a-PbA" kind="relationship" relationship="viewControllers" destinationCreationSelector="toAddNewVC" id="jwf-TO-PsF"/>
                         <segue destination="Nei-HZ-ZLW" kind="relationship" relationship="viewControllers" destinationCreationSelector="toCollectionVC" id="GXq-hF-8wa"/>
                     </connections>
                 </tabBarController>

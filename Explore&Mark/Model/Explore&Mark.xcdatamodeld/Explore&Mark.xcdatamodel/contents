@@ -16,13 +16,16 @@
     </entity>
     <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="iconId" optional="YES" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="weather" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Images" positionX="366.6163330078125" positionY="-30.37167358398438" width="128" height="73"/>
         <element name="Place" positionX="115.4833984375" positionY="-49.849365234375" width="128" height="163"/>
-        <element name="Record" positionX="84.453369140625" positionY="186.1767883300781" width="128" height="89"/>
+        <element name="Record" positionX="84.453369140625" positionY="186.1767883300781" width="128" height="134"/>
     </elements>
 </model>

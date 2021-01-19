@@ -18,10 +18,14 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.navigationController?.isNavigationBarHidden = true
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        signInAsGuest.isHidden = signInAsGuestIsHidden
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUserSignedIn), name: .didAuthenticated, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        signInAsGuest.isHidden = signInAsGuestIsHidden
     }
     
     override func viewDidAppear(_ animated: Bool) {

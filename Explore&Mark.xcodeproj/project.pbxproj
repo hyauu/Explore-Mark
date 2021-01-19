@@ -35,6 +35,10 @@
 		971D3BE525B2BEE200385F0F /* Place+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BE425B2BEE200385F0F /* Place+Extension.swift */; };
 		971D3BED25B3B87600385F0F /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BEC25B3B87600385F0F /* NotificationName+Extension.swift */; };
 		971D3BF025B3BC2700385F0F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D3BEF25B3BC2600385F0F /* UIViewController+Extension.swift */; };
+		978CF31725B65FC400166171 /* OWClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978CF31625B65FC400166171 /* OWClient.swift */; };
+		978CF31B25B66E3100166171 /* CurrentWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978CF31A25B66E3100166171 /* CurrentWeatherData.swift */; };
+		978CF31E25B6741400166171 /* OWCoord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978CF31D25B6741400166171 /* OWCoord.swift */; };
+		978CF32125B6743900166171 /* OWWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978CF32025B6743900166171 /* OWWeather.swift */; };
 		97C2A32425AFDA43005C467A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32325AFDA43005C467A /* AppDelegate.swift */; };
 		97C2A32625AFDA43005C467A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32525AFDA43005C467A /* SceneDelegate.swift */; };
 		97C2A32825AFDA43005C467A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C2A32725AFDA43005C467A /* SignInViewController.swift */; };
@@ -78,6 +82,10 @@
 		971D3BE425B2BEE200385F0F /* Place+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+Extension.swift"; sourceTree = "<group>"; };
 		971D3BEC25B3B87600385F0F /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		971D3BEF25B3BC2600385F0F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		978CF31625B65FC400166171 /* OWClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWClient.swift; sourceTree = "<group>"; };
+		978CF31A25B66E3100166171 /* CurrentWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherData.swift; sourceTree = "<group>"; };
+		978CF31D25B6741400166171 /* OWCoord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWCoord.swift; sourceTree = "<group>"; };
+		978CF32025B6743900166171 /* OWWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWWeather.swift; sourceTree = "<group>"; };
 		97C2A32025AFDA43005C467A /* Explore&Mark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Explore&Mark.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C2A32325AFDA43005C467A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C2A32525AFDA43005C467A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			children = (
 				971D3B6025B17E7600385F0F /* OTMClient.swift */,
 				971D3BB525B29A0100385F0F /* FlickrClient.swift */,
+				978CF31625B65FC400166171 /* OWClient.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -128,6 +137,7 @@
 		971D36DE25B15D0600385F0F /* Respnse */ = {
 			isa = PBXGroup;
 			children = (
+				978CF31925B66E0000166171 /* OpenWeatherRespnse */,
 				971D3BB825B29D6E00385F0F /* FlickrResponse */,
 				971D3BB325B28A0200385F0F /* OpenTripMapResponse */,
 			);
@@ -158,6 +168,16 @@
 				971D3BC125B29E0F00385F0F /* FlickrPhotos.swift */,
 			);
 			path = FlickrResponse;
+			sourceTree = "<group>";
+		};
+		978CF31925B66E0000166171 /* OpenWeatherRespnse */ = {
+			isa = PBXGroup;
+			children = (
+				978CF31A25B66E3100166171 /* CurrentWeatherData.swift */,
+				978CF31D25B6741400166171 /* OWCoord.swift */,
+				978CF32025B6743900166171 /* OWWeather.swift */,
+			);
+			path = OpenWeatherRespnse;
 			sourceTree = "<group>";
 		};
 		97C2A31725AFDA43005C467A = {
@@ -383,16 +403,20 @@
 				971D3BAE25B22E0400385F0F /* OTMBbox.swift in Sources */,
 				971D3BC525B2A47600385F0F /* PlaceDetailViewController.swift in Sources */,
 				971D367F25B0E03500385F0F /* MapViewController.swift in Sources */,
+				978CF31B25B66E3100166171 /* CurrentWeatherData.swift in Sources */,
 				971D3BF025B3BC2700385F0F /* UIViewController+Extension.swift in Sources */,
 				971D3BA525B229F500385F0F /* OTMWikiPediaExtracts.swift in Sources */,
 				971D3BCB25B2ABCC00385F0F /* MKPointAnnotationWithPlace.swift in Sources */,
 				971D3B6125B17E7600385F0F /* OTMClient.swift in Sources */,
+				978CF31E25B6741400166171 /* OWCoord.swift in Sources */,
 				971D3B9F25B226BD00385F0F /* OTMObjectProperty.swift in Sources */,
+				978CF32125B6743900166171 /* OWWeather.swift in Sources */,
 				97C2A34125AFEAFF005C467A /* DataController.swift in Sources */,
 				971D36E325B15DAD00385F0F /* OTMPoint.swift in Sources */,
 				971D3BE525B2BEE200385F0F /* Place+Extension.swift in Sources */,
 				97C2A34625AFECE8005C467A /* Explore&Mark.xcdatamodeld in Sources */,
 				971D368C25B10ACC00385F0F /* Coordinate+Extension.swift in Sources */,
+				978CF31725B65FC400166171 /* OWClient.swift in Sources */,
 				971D36E025B15D2E00385F0F /* OTMObject.swift in Sources */,
 				971D3BED25B3B87600385F0F /* NotificationName+Extension.swift in Sources */,
 				971D3B9C25B187A900385F0F /* MKMapView+Extension.swift in Sources */,

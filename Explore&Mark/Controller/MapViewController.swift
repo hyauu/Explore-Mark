@@ -39,6 +39,7 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func getUserLocationTapped(_ sender: Any) {
@@ -176,7 +177,7 @@ extension MapViewController: MKMapViewDelegate {
     
     // Update map region to permanent store
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        
+        print("regionDidChangeCalled!!!")
         // store the current map region
         let center = mapView.region.center
         let latDelta = mapView.region.span.latitudeDelta
